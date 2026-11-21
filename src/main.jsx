@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Volume2, VolumeX, Sparkles, ArrowUpRight } from 'lucide-react';
+import { Volume2, VolumeX, Sparkles, ArrowUpRight, ArrowLeft } from 'lucide-react';
 import './styles.css';
 
 const photos = [
@@ -158,6 +158,17 @@ function App() {
         </section>
       ) : (
         <section className="cosmos-screen" aria-label="Birthday surprise">
+          <button
+            className="back-button"
+            onClick={() => {
+              setRevealed(false);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            aria-label="Go back to photo memories"
+          >
+            <ArrowLeft size={17} />
+            <span>BACK TO OUR MEMORIES</span>
+          </button>
           <div className="cosmic-glow" />
           <div className="stars" aria-hidden="true">
             {Array.from({ length: 65 }, (_, i) => <i key={i} style={{ '--x': `${(i * 37 + 11) % 100}%`, '--y': `${(i * 61 + 7) % 100}%`, '--d': `${(i % 5) * 0.7}s`, '--s': `${(i % 3) + 1}px` }} />)}
