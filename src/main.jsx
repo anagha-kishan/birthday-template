@@ -111,7 +111,7 @@ function PhotoCard({ photo, index }) {
   return (
     <figure className={`photo-card ${photo.className}`} style={{ '--delay': `${index * 50}ms` }}>
       {loaded ? (
-        <img src={`/photos/${photo.file}`} alt="A favourite memory together" onError={() => setLoaded(false)} />
+        <img src={`${import.meta.env.BASE_URL}photos/${photo.file}`} alt="A favourite memory together" onError={() => setLoaded(false)} />
       ) : (
         <div className="photo-placeholder">
           <span className="placeholder-star">✳</span>
@@ -206,7 +206,7 @@ function App() {
                   {hubbleLoaded && (
                     <img
                       className="hubble-image"
-                      src="/hubble.jpeg"
+                      src={`${import.meta.env.BASE_URL}hubble.jpeg`}
                       alt="Purple cosmic image from the Hubble Space Telescope"
                       onError={() => setHubbleLoaded(false)}
                     />
